@@ -105,7 +105,7 @@
 .bd-table-days button:hover:enabled {
     color: red;
     font-weight: 700;
-    background-color: #5b6475;
+    background-color: #515d74;
     cursor: pointer
 }
 
@@ -113,8 +113,12 @@
     background-color: #eee
 }
 
-.bd-today.bd-holiday {
-    background-color: green;
+button.bd-today {
+    background-color:green
+}
+
+button.bd-today.bd-holiday {
+    background-color:green
 }
 
 button.bd-holiday {

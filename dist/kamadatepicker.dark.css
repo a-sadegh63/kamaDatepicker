@@ -113,8 +113,12 @@
     background-color: #eee
 }
 
-.bd-today.bd-holiday {
-    background-color: green;
+button.bd-today {
+    background-color:green
+}
+
+button.bd-today.bd-holiday {
+    background-color:green
 }
 
 button.bd-holiday {
