@@ -42,4 +42,5 @@ kamaDatepicker('test-date-id', { buttonsColor: "red", forceFarsiDigits: true });
 | If true, the calendar displays the year and month corresponding to the input value after opening, otherwise, it will always display today's date. | false | true, false | sync |
 | If true, the "go to today" button is displayed at the bottom of the calendar. | false | true, false | gotoToday |
 | The default year of the calendar | "" | int, string (numeric) | defaultYear |
+| An array of available years for the user to select | none | array | availableYears |
 

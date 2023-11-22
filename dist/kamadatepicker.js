@@ -247,17 +247,26 @@
         r = p[0], i = p[1], d = p[2], o = A[0], a = A[1], A[2], I.val(a),
             function (t) {
                 C.find("option").remove();
-                for (var e = 0; e < f.pastYearsCount + f.futureYearsCount; e++) {
-                    var o = t - f.pastYearsCount + e + "";
-                    if (f.forceFarsiDigits)
-                        for (var n = 0; n < 10; n++) {
-                            var a = new RegExp(n, "g");
-                            o = o.replace(a, b[n])
-                        }
-                    C.append($("<option>", {
-                        value: t - f.pastYearsCount + e,
-                        text: o
-                    }))
+                if ( typeof f.availableYears === 'undefined' ) {
+                    for (var e = 0; e < f.pastYearsCount + f.futureYearsCount; e++) {
+                        var o = t - f.pastYearsCount + e + "";
+                        if (f.forceFarsiDigits)
+                            for (var n = 0; n < 10; n++) {
+                                var a = new RegExp(n, "g");
+                                o = o.replace(a, b[n])
+                            }
+                        C.append($("<option>", {
+                            value: t - f.pastYearsCount + e,
+                            text: o
+                        }))
+                    }
+                } else {
+                    $.each( f.availableYears, function(i, v) {
+                        C.append($("<option>", {
+                            value: v,
+                            text: v
+                        }));
+                    });
                 }
             }(o), C.val(typeof f.defaultYear !== 'undefined' ? f.defaultYear : o), s = _(o, a);
         var q = function (t, e) {
@@ -312,6 +321,7 @@
             }
         };
         u.parent().on("click", "button.day", (function () {
+            o = parseInt( C.val() );
             var t = o + "/" + a + "/" + $(this).attr("class").split(" ")[$(this).attr("class").split(" ").indexOf("day") + 1].split("-")[1];
             f.twodigit && (t = N(t)), u.val(t), u.trigger("change"), f.closeAfterSelect && (y = !1, u.trigger("blur")), f.highlightSelectedDay && (v.find(".bd-selected-day").removeClass("bd-selected-day"), $(this).addClass("bd-selected-day"))
         })), x.on("click", (function () {
